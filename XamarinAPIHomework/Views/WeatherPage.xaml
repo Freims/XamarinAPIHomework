@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinAPIHomework.WeatherPage"
+             BackgroundColor="SkyBlue">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,40,0,0">
+                <Label Text="Weather information"
+                   FontSize="Title"
+                   FontFamily="OpenSans"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   ></Label>
+                <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                    <Entry Placeholder="Enter your city name"
+                       Text="{Binding InputCity}"></Entry>
+                    <Button Text="Search" 
+                        BorderRadius="20"
+                        BackgroundColor="LightSeaGreen"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSans"
+                        Command="{Binding GetWeatherCommand}"></Button>
+                </StackLayout>
+            </StackLayout>
+            
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,30,0,0">
+                <Image Source="{Binding ImageLink}" HeightRequest="50" WidthRequest="50"></Image>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding CityWeather.Name}"
+                       FontFamily="OpenSans"
+                       FontSize="30"
+                       ></Label>
+                    <Label Text="{Binding CityWeather.Sys.Country}"
+                       FontFamily="OpenSans"
+                       FontAttributes="Bold"
+                       FontSize="30"></Label>
+                </StackLayout>
+                <Label Text="{Binding CityWeather.Weather[0].Description}"
+                       FontFamily="OpenSans"
+                       HorizontalOptions="Center"
+                       ></Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="{Binding CityWeather.Main.Temp}"
+                       FontFamily="OpenSans"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                   ></Label>
+                    <Label Text="F°"
+                       FontFamily="OpenSans"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                   ></Label>
+                </StackLayout>
+                
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
